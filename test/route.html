@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <h1 id="profile-heading">Loading...</h1>
+
+    <script>
+      // Simulate dynamic profile loading
+      function loadProfile() {
+        // Extract username from the URL (e.g., mywebsite.com/#username)
+        const username = window.location.hash.substring(1);
+        if (username) {
+          document.getElementById(
+            "profile-heading"
+          ).textContent = `Profile for ${username}`;
+          // You could also fetch additional data here using AJAX or an API call
+        } else {
+          document.getElementById("profile-heading").textContent =
+            "No user specified";
+        }
+      }
+
+      // Run the function on page load and when hash changes
+      window.addEventListener("hashchange", loadProfile);
+      window.addEventListener("load", loadProfile);
+    </script>
+  </body>
+</html>
